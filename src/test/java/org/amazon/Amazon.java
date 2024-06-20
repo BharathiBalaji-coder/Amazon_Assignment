@@ -55,7 +55,19 @@ public class Amazon {
 
         // Iterating through all the Links and printing link
         // text
-        for (WebElement link : links)
+        for (WebElement link : links) {
+            System.out.println(link.getText());
+        }
+        //click Thanks much gift card and add to cart
+        WebElement thanksCards = driver.findElement(By.xpath("//*[@id='acsProductBlockV1-2']/a/div[1]/img"));
+        Actions actions1 = new Actions(driver);
+        actions1.doubleClick(thanksCards).perform();
+        System.out.println("Thanks Gift card has been clicked successfully");
+        Thread.sleep(3000);
+        //select Happy Birthday Gift card and add to card
+        WebElement card = driver.findElement(By.xpath("//*[@id='gc-mini-picker-design-swatch-image-12']"));
+        card.click();
+        System.out.println("Happy Birthday card has been clicked successfully");
         driver.close();
         driver.quit();
 
